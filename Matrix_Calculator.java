@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 abstract class matrix{
     protected int row;
@@ -85,7 +86,7 @@ class int_matrix extends matrix{
         print(mat2);
         System.out.println("RESULTANT MATRIX OF ADDITION");
         print(resa);
-        System.out.println("RESULTANT MATRIX OF SUBRACTION");
+        System.out.println("RESULTANT MATRIX OF SUBTRACTION");
         print(resb);
         System.out.println("RESULTANT MATRIX OF MULTIPLICATION");
         print(resc);
@@ -174,7 +175,7 @@ class float_matrix extends matrix{
         print(mat2);
         System.out.println("RESULTANT MATRIX OF ADDITION");
         print(resa);
-        System.out.println("RESULTANT MATRIX OF SUBRACTION");
+        System.out.println("RESULTANT MATRIX OF SUBTRACTION");
         print(resb);
         System.out.println("RESULTANT MATRIX OF MULTIPLICATION");
         print(resc);
@@ -199,7 +200,7 @@ class double_matrix extends matrix{
     private double[][] mat1;
     private double[][] mat2;
     private double[][] resa; // addition
-    private  double[][] resb; // subraction
+    private  double[][] resb; // subtraction
     private   double[][] resc; // multiplication
 
 
@@ -295,43 +296,92 @@ public class Matrix_Calculator {
             System.out.println("1. Integer");
             System.out.println("2. Float");
             System.out.println("3. Double");
-            System.out.println("4. Exit");
+            System.out.println("4. Integer Reverse 1-D array");
+            System.out.println("5. Float Reverse 1-D array");
+            System.out.println("6. Double Reverse 1-D array");
+            System.out.println("7. Int Reverse 2-D array");
+            System.out.println("8. Float Reverse 2-D array");
+            System.out.println("9. Double Reverse 2-D array");
+            System.out.println("10. Int Reverse 3-D array");
+            System.out.println("11. Float Reverse 3-D array");
+            System.out.println("12. Double Reverse 3-D array");
+            System.out.println("13. Exit");
+
             System.out.print("Enter Here = ");
             int choice = obj.nextInt();
             System.out.println();
 
             matrix m = null;
+            Array_Caller ar = new Array_Caller();
+
 
             if (choice == 1) {
                 m = new int_matrix();
+
             } else if (choice == 2) {
                 m = new float_matrix();
             } else if (choice == 3) {
                 m = new double_matrix();
-            } else if(choice == 4){
+            } else if (choice == 4) {
+                ar.int_arr();
+                continue;
+            } else if (choice == 5) {
+                ar.float_array();
+                continue;
+            } else if (choice == 6) {
+                ar.double_array();
+                continue;
+            } else if (choice == 7) {
+                ar.int_2_array();
+                continue;
+            } else if (choice == 8) {
+                ar.float_2_array();
+                continue;
+            } else if (choice == 9) {
+                ar.double_2_array();
+                continue;
+            }  else if (choice == 10) {
+                ar.int_3_array();
+                continue;
+            } else if (choice == 11) {
+                ar.float_3_array();
+                continue;
+            } else if (choice == 12) {
+                ar.double_3_array();
+                continue;
+            } else if(choice == 13){
                 System.out.println("Exiting Calculator..................");
                 System.out.println("Thank You!");
-
                 break;
-
             }
             else {
                 System.out.println("Invalid choice!");
+                continue;
             }
 
             m.init();
             m.input();
 
-            System.out.println("================== OPERATION SELECTION MENU =====================");
-            System.out.println("1. Addition");
-            System.out.println("2. Subtraction");
-            System.out.println("3. Multiplication");
-            System.out.println("4. Addition & Multiplication");
-            System.out.println("5. Subtraction & Multiplication");
-            System.out.println("6. Addition & Subtraction");
-            System.out.print("Enter Here = ");
-            int op = obj.nextInt();
+            int op;
 
+            while(true) {
+
+                System.out.println("================== OPERATION SELECTION MENU =====================");
+                System.out.println("1. Addition");
+                System.out.println("2. Subtraction");
+                System.out.println("3. Multiplication");
+                System.out.println("4. Addition & Multiplication");
+                System.out.println("5. Subtraction & Multiplication");
+                System.out.println("6. Addition & Subtraction");
+                System.out.print("Enter Here = ");
+                op = obj.nextInt();
+
+                if (op >= 1 && op <= 6) {
+                    break;
+                } else {
+                    System.out.println("please enter a valid option!");
+                }
+            }
             switch (op){
                 case 1:
                     m.add();
@@ -358,8 +408,6 @@ public class Matrix_Calculator {
                 default:
                     System.out.println("please enter a valid option!");
             }
-
-
         }while(true);
 
         obj.close();
@@ -368,3 +416,170 @@ public class Matrix_Calculator {
 
 
     }
+class Array_Caller {
+    Scanner sc = new Scanner(System.in);
+
+    public void int_arr() {
+        System.out.println("enter size of array = ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("enter element # " + (i + 1) + " = ");
+            arr[i] = sc.nextInt();
+
+        }
+        reverse_array rev = new int_reverse();
+        rev.reverse(arr);
+        System.out.println("Reversed Array = " + Arrays.toString(arr));
+    }
+
+    public void float_array() {
+        System.out.println("enter size of array = ");
+        int n = sc.nextInt();
+        float[] arr = new float[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("enter element # " + (i + 1) + " = ");
+            arr[i] = sc.nextFloat();
+
+        }
+        reverse_array rev = new float_reverse();
+        rev.reverse(arr);
+        System.out.println("Reversed Array = " + Arrays.toString(arr));
+    }
+
+    public void double_array() {
+        System.out.println("enter size of array = ");
+        int n = sc.nextInt();
+        double[] arr = new double[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("enter element # " + (i + 1) + " = ");
+            arr[i] = sc.nextDouble();
+
+        }
+        reverse_array rev = new double_array();
+        rev.reverse(arr);
+        System.out.println("Reversed Array = " + Arrays.toString(arr));
+    }
+
+    public void int_2_array() {
+        System.out.println("enter no of rows = ");
+        int row = sc.nextInt();
+        System.out.println("enter no of columns = ");
+        int col = sc.nextInt();
+        int[][] arr = new int[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.printf("enter element [%d][%d] = \n" , i, j);
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        reverse_array rev = new int_reverse();
+        rev.reverse(arr);
+        System.out.println("Reversed Array = " + Arrays.deepToString(arr));
+
+    }
+
+    public void float_2_array() {
+        System.out.println("enter no of rows = ");
+        int row = sc.nextInt();
+        System.out.println("enter no of columns = ");
+        int col = sc.nextInt();
+        float[][] arr = new float[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.printf("enter element [%d][%d] = \n" , i, j);
+                arr[i][j] = sc.nextFloat();
+            }
+        }
+        reverse_array rev = new float_reverse();
+        rev.reverse(arr);
+        System.out.println("Reversed Array = " + Arrays.deepToString(arr));
+    }
+
+    public void double_2_array() {
+        System.out.println("enter no of rows = ");
+        int row = sc.nextInt();
+        System.out.println("enter no of columns = ");
+        int col = sc.nextInt();
+        double[][] arr = new double[row][col];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.printf("enter element [%d][%d] = \n" , i, j);
+                arr[i][j] = sc.nextDouble();
+            }
+        }
+        reverse_array rev = new double_array();
+        rev.reverse(arr);
+        System.out.println("Reversed Array = " + Arrays.deepToString(arr));
+    }
+
+    public void int_3_array() {
+        System.out.println("enter no of rows = ");
+        int row = sc.nextInt();
+        System.out.println("enter no of columns = ");
+        int col = sc.nextInt();
+        System.out.println("enter no of z direction = ");
+        int zd = sc.nextInt();
+        int[][][] arr = new int[row][col][zd];
+        for (int i = 0; i < row ; i++) {
+            for (int j = 0; j < col ; j++) {
+                for (int k = 0; k < zd; k++) {
+                    System.out.printf("enter element [%d][%d][%d] = \n" , i, j,k);
+                    arr[i][j][k] = sc.nextInt();
+                }
+
+            }
+
+        }
+        reverse_array rev = new int_reverse();
+        rev.reverse(arr);
+        System.out.println("Reversed Array = " + Arrays.deepToString(arr));
+    }
+
+    public void float_3_array() {
+        System.out.println("enter no of rows = ");
+        int row = sc.nextInt();
+        System.out.println("enter no of columns = ");
+        int col = sc.nextInt();
+        System.out.println("enter no of z direction = ");
+        int zd = sc.nextInt();
+        float[][][] arr = new float[row][col][zd];
+        for (int i = 0; i < row ; i++) {
+            for (int j = 0; j < col ; j++) {
+                for (int k = 0; k < zd; k++) {
+                    System.out.printf("enter element [%d][%d][%d] = \n" , i, j,k);
+                    arr[i][j][k] = sc.nextFloat();
+                }
+
+            }
+
+        }
+        reverse_array rev = new float_reverse();
+        rev.reverse(arr);
+        System.out.println("Reversed Array = " + Arrays.deepToString(arr));
+    }
+
+    public void double_3_array() {
+        System.out.println("enter no of rows = ");
+        int row = sc.nextInt();
+        System.out.println("enter no of columns = ");
+        int col = sc.nextInt();
+        System.out.println("enter no of z direction = ");
+        int zd = sc.nextInt();
+        double[][][] arr = new double[row][col][zd];
+        for (int i = 0; i < row ; i++) {
+            for (int j = 0; j < col ; j++) {
+                for (int k = 0; k < zd; k++) {
+                    System.out.printf("enter element [%d][%d][%d] = \n" , i, j,k);
+                    arr[i][j][k] = sc.nextDouble();
+                }
+
+            }
+
+        }
+        reverse_array rev = new double_array();
+        rev.reverse(arr);
+        System.out.println("Reversed Array = " + Arrays.deepToString(arr));
+    }
+
+}
