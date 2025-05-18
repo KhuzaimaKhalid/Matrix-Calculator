@@ -1,21 +1,24 @@
-# 🧮 Matrix Calculator
+# 🧮 Matrix Calculator & Array Reversal Utility
 
-This is a simple **Matrix Calculator** written in Java, utilizing object-oriented programming (OOP) concepts such as abstract classes, inheritance, method overriding, dynamic class selection, and user input handling via `Scanner`.
+This project is a **Matrix Calculator and Array Reversal Utility** written in Java. It demonstrates object-oriented programming (OOP) concepts such as abstract classes, inheritance, method overriding, dynamic type selection, and user interaction with `Scanner`.
 
 ---
 
 ## 🚀 Features
 
-- Supports **three data types**: Integer, Float, and Double matrices
-- **Dynamic selection** of matrix type at runtime
-- **Matrix operations**:
+- **Matrix Operations** (for int, float, double types):
   - Addition
   - Subtraction
   - Element-wise Multiplication
   - Combined operations (e.g., Addition & Multiplication)
-- **Custom matrix size**: user can specify number of rows and columns
-- **Interactive menu system** for operation selection
-- **Input validation** and interactive prompts
+  - Custom matrix size (user-specified rows and columns)
+- **Array Reversal Utility**:
+  - Reverse 1D, 2D, and 3D arrays for int, float, and double types
+- **Interactive Menus**:
+  - Choose data type, operation, and array/matrix manipulation options
+  - Robust input validation and re-prompt on invalid entries
+- **Extensible OOP Design**:
+  - Easily add new numeric types or operations
 
 ---
 
@@ -27,38 +30,42 @@ This is a simple **Matrix Calculator** written in Java, utilizing object-oriente
   - `Scanner sc` (for user input)
 - Abstract Methods:
   - `init()`: Initialize matrix size and allocate arrays
-  - `input()`: Take matrix values from user
-  - `add()`: Matrix addition
-  - `sub()`: Matrix subtraction
-  - `mul()`: Element-wise multiplication
+  - `input()`: Input matrix values
+  - `add()`, `sub()`, `mul()`: Matrix operations
   - `printm()`: Print matrices and results
-  - `close()`: Close resources
+  - `close()`: Resource cleanup
 
-### `int_matrix`, `float_matrix`, `double_matrix` (Concrete Classes)
-- Inherit from `matrix`
-- Implement all abstract methods for respective data types
-- Fields:
-  - Two input matrices (`mat1`, `mat2`)
-  - Three result matrices (`resa`, `resb`, `resc`) for addition, subtraction, and multiplication
+### `int_matrix`, `float_matrix`, `double_matrix`
+- Concrete classes for each numeric type
+- Implement all abstract methods for their type
+- Store two input matrices (`mat1`, `mat2`) and three result matrices (`resa`, `resb`, `resc`)
+
+### `reverse_array` (Abstract Class)
+- Abstract reversal methods for int, float, and double arrays (1D/2D/3D)
+
+### `int_reverse`, `float_reverse`, `double_array`
+- Implement reversal logic for each type and dimension
+
+### `Array_Caller`
+- Handles user prompts and calls the appropriate reversal method for 1D, 2D, and 3D arrays
 
 ### `Matrix_Calculator` (Main Class)
-- Presents a menu to:
-  - Select matrix type (Integer/Float/Double)
-  - Enter matrix dimensions and elements
-  - Choose desired matrix operations
-  - Display results
+- Presents an interactive menu:
+  - Select matrix or array operation
+  - Select numeric type
+  - Enter dimensions and values
+  - Choose and perform operations
   - Repeat or exit
 
 ---
 
 ## 🛠️ How It Works
 
-1. User selects the **data type** (Integer, Float, Double) for matrices.
-2. User enters the **matrix size** (rows and columns).
-3. User **inputs elements** for two matrices.
-4. User chooses one or more **operations** (Addition, Subtraction, Multiplication, or combinations).
-5. The calculator **performs the operations** and displays all matrices.
-6. User can perform more calculations or exit.
+1. User selects a **data type** (int, float, double) or array/matrix operation.
+2. User enters **size/dimensions** and elements as prompted.
+3. For matrices: user selects one or more **operations** (Addition, Subtraction, Multiplication, or combinations).
+4. For arrays: user selects dimension and type, inputs values, and reverses the array.
+5. Results are displayed. User can perform more operations or exit.
 
 ---
 
@@ -70,12 +77,14 @@ choose data type :
 1. Integer
 2. Float
 3. Double
-4. Exit
+4. Integer Reverse 1-D array
+...
+13. Exit
 Enter Here = 1
 
 enter row size = 
 2
-enter coloumn size = 
+enter column size = 
 2
 ENTER ELEMENTS OF FIRST MATRIX
 enter element [0][0] = 1
@@ -105,7 +114,7 @@ SECOND MATRIX
 RESULTANT MATRIX OF ADDITION
 	6	8
 	10	12
-RESULTANT MATRIX OF SUBRACTION
+RESULTANT MATRIX OF SUBTRACTION
 	-4	-4
 	-4	-4
 RESULTANT MATRIX OF MULTIPLICATION
@@ -115,15 +124,22 @@ RESULTANT MATRIX OF MULTIPLICATION
 
 ---
 
+## 🗂️ File Structure
+
+- `Matrix_Calculator.java` — Main menu, matrix logic, and integration
+- `reverse_array.java` — Abstract class and implementations for reversing arrays
+- `README.md` — This file
+
+---
+
 ## About
 
-A command-line matrix calculator featuring interactive menus and OOP-based extensibility for multiple numeric types.
+A command-line calculator for matrices and arrays, featuring interactive menus and OOP-based extensibility for multiple numeric types and dimensions. Suitable for learning, assignments, or as a utility.
 
 ---
 
 ## Resources
 
-- [ReadMe](#)
 - [Java Documentation](https://docs.oracle.com/javase/8/docs/api/)
 
 ---
