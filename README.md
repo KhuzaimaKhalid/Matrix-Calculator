@@ -14,9 +14,10 @@ This project is a **Matrix Calculator and Array Reversal Utility** written in Ja
   - Custom matrix size (user-specified rows and columns)
 - **Array Reversal Utility**:
   - Reverse 1D, 2D, and 3D arrays for int, float, and double types
+- **Find Maximum/Minimum** in 1D, 2D, and 3D arrays (int, float, double)
 - **Interactive Menus**:
   - Choose data type, operation, and array/matrix manipulation options
-  - Robust input validation and re-prompt on invalid entries
+  - Input validation and re-entry on invalid choices
 - **Extensible OOP Design**:
   - Easily add new numeric types or operations
 
@@ -36,7 +37,6 @@ This project is a **Matrix Calculator and Array Reversal Utility** written in Ja
   - `close()`: Resource cleanup
 
 ### `int_matrix`, `float_matrix`, `double_matrix`
-- Concrete classes for each numeric type
 - Implement all abstract methods for their type
 - Store two input matrices (`mat1`, `mat2`) and three result matrices (`resa`, `resb`, `resc`)
 
@@ -48,6 +48,9 @@ This project is a **Matrix Calculator and Array Reversal Utility** written in Ja
 
 ### `Array_Caller`
 - Handles user prompts and calls the appropriate reversal method for 1D, 2D, and 3D arrays
+
+### `max`, `min`
+- Utility classes to find maximum and minimum in 1D, 2D, 3D arrays for all numeric types
 
 ### `Matrix_Calculator` (Main Class)
 - Presents an interactive menu:
@@ -65,7 +68,8 @@ This project is a **Matrix Calculator and Array Reversal Utility** written in Ja
 2. User enters **size/dimensions** and elements as prompted.
 3. For matrices: user selects one or more **operations** (Addition, Subtraction, Multiplication, or combinations).
 4. For arrays: user selects dimension and type, inputs values, and reverses the array.
-5. Results are displayed. User can perform more operations or exit.
+5. For min/max: user selects the required array type/dimension and gets the result.
+6. Results are displayed. User can perform more operations or exit.
 
 ---
 
@@ -79,7 +83,11 @@ choose data type :
 3. Double
 4. Integer Reverse 1-D array
 ...
-13. Exit
+13. Find integer Minimum Value for 1-D Array
+...
+22. Find integer Maximum Value for 1-D Array
+...
+31. Exit
 Enter Here = 1
 
 enter row size = 
@@ -126,8 +134,9 @@ RESULTANT MATRIX OF MULTIPLICATION
 
 ## 🗂️ File Structure
 
-- `Matrix_Calculator.java` — Main menu, matrix logic, and integration
+- `Matrix_Calculator.java` — Main menu, matrix logic, and integration, plus array utilities
 - `reverse_array.java` — Abstract class and implementations for reversing arrays
+- `max_min.java` — Find max/min in arrays of any dimension and type
 - `README.md` — This file
 
 ---
