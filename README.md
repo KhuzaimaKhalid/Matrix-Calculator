@@ -1,4 +1,4 @@
-# 🧮 Matrix Calculator & Array Reversal Utility
+# 🧮 Matrix Calculator
 
 This project is a **Matrix Calculator and Array Reversal Utility** written in Java. It demonstrates object-oriented programming (OOP) concepts such as abstract classes, inheritance, method overriding, dynamic type selection, and user interaction with `Scanner`.
 
