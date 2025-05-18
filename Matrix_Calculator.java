@@ -305,7 +305,25 @@ public class Matrix_Calculator {
             System.out.println("10. Int Reverse 3-D array");
             System.out.println("11. Float Reverse 3-D array");
             System.out.println("12. Double Reverse 3-D array");
-            System.out.println("13. Exit");
+            System.out.println("13. Find integer Minimum Value for 1-D Array");
+            System.out.println("14. Find float Minimum Value for 1-D Array");
+            System.out.println("15. Find double Minimum Value for 1-D Array");
+            System.out.println("16. Find integer Minimum Value for 2-D Array");
+            System.out.println("17. Find float Minimum Value for 2-D Array");
+            System.out.println("18. Find double Minimum Value for 2-D Array");
+            System.out.println("19. Find integer Minimum Value for 3-D Array");
+            System.out.println("20. Find float Minimum Value for 3-D Array");
+            System.out.println("21. Find double Minimum Value for 3-D Array");
+            System.out.println("22. Find integer Maximum Value for 1-D Array");
+            System.out.println("23. Find float Maximum Value for 1-D Array");
+            System.out.println("24. Find double Maximum Value for 1-D Array");
+            System.out.println("25. Find integer Maximum Value for 2-D Array");
+            System.out.println("26. Find float Maximum Value for 2-D Array");
+            System.out.println("27. Find double Maximum Value for 2-D Array");
+            System.out.println("28. Find integer Maximum Value for 3-D Array");
+            System.out.println("29. Find float Maximum Value for 3-D Array");
+            System.out.println("30. Find double Maximum Value for 3-D Array");
+            System.out.println("31. Exit");
 
             System.out.print("Enter Here = ");
             int choice = obj.nextInt();
@@ -313,6 +331,8 @@ public class Matrix_Calculator {
 
             matrix m = null;
             Array_Caller ar = new Array_Caller();
+            max max = new max();
+            min min = new min();
 
 
             if (choice == 1) {
@@ -349,7 +369,61 @@ public class Matrix_Calculator {
             } else if (choice == 12) {
                 ar.double_3_array();
                 continue;
-            } else if(choice == 13){
+            } else if (choice == 13) {
+                min.one_int_min();
+                continue;
+            } else if (choice == 14) {
+                min.one_float_min();
+                continue;
+            }else if (choice == 15) {
+                min.one_double_min();
+                continue;
+            }else if (choice == 16) {
+                min.two_init_min();
+                continue;
+            }else if (choice == 17) {
+                min.two_float_min();
+                continue;
+            }else if (choice == 18) {
+                min.two_double_min();
+                continue;
+            }else if (choice == 19) {
+                min.three_int_min();
+                continue;
+            }else if (choice == 20) {
+                min.three_float_min();
+                continue;
+            }else if (choice == 21) {
+                min.three_double_min();
+                continue;
+            }else if (choice == 22) {
+                max.one_int_max();
+                continue;
+            }else if (choice == 23) {
+                max.one_float_max();
+                continue;
+            }else if (choice == 24) {
+                max.one_double_max();
+                continue;
+            }else if (choice == 25) {
+                max.two_init_max();
+                continue;
+            }else if (choice == 26) {
+                max.two_float_max();
+                continue;
+            }else if (choice == 27) {
+                max.two_double_max();
+                continue;
+            }else if (choice == 28) {
+                max.three_int_max();
+                continue;
+            }else if (choice == 29) {
+                max.three_float_max();
+                continue;
+            }else if (choice == 30) {
+                max.three_double_max();
+                continue;
+            }else if(choice == 31){
                 System.out.println("Exiting Calculator..................");
                 System.out.println("Thank You!");
                 break;
@@ -373,6 +447,10 @@ public class Matrix_Calculator {
                 System.out.println("4. Addition & Multiplication");
                 System.out.println("5. Subtraction & Multiplication");
                 System.out.println("6. Addition & Subtraction");
+
+
+
+
                 System.out.print("Enter Here = ");
                 op = obj.nextInt();
 
@@ -405,6 +483,7 @@ public class Matrix_Calculator {
                     m.add();
                     m.sub();
                     m.printm();
+
                 default:
                     System.out.println("please enter a valid option!");
             }
